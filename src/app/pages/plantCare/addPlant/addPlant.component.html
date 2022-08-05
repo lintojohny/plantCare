@@ -1,0 +1,115 @@
+<div class="formcss">
+  <app-bread-crumb
+    [items]="[{ text: pageTitle }]"
+  ></app-bread-crumb>
+
+
+  <form [formGroup]="resourceForm" (submit)="submitForm()">
+    <div class="card">
+      <div class="card-header">Plant Informations</div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="plantType">Select Your Plant Type</label>
+            <ng-select
+              id="plantType"
+              [items]="plantsMasterData"
+              class="NgSelect"
+              formControlName="plantTypeId"
+              labelForId="input-tipo"
+              appearance="outline"
+              [searchable]="true"
+              bindValue="id"
+
+            >
+              <ng-template ng-label-tmp let-item="item">
+                {{ item.name }}
+              </ng-template>
+              <ng-template
+                ng-option-tmp
+                let-item="item"
+                let-index="index"
+                let-search="searchTerm"
+              >
+                {{ item.name }}
+              </ng-template>
+            </ng-select>
+            <app-form-field-error
+              [form-control]="resourceForm?.get('plantTypeId')"
+            ></app-form-field-error>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="wateringFreq">Watering frequency of this plant</label>
+            <ng-select
+              id="wateringFreq"
+              [items]="wateringFreqencyList"
+              class="NgSelect"
+              formControlName="wateringFrequencyId"
+              labelForId="input-tipo"
+              appearance="outline"
+              [searchable]="true"
+              bindValue="id"
+            >
+
+              <ng-template ng-label-tmp let-item="item">
+                {{ item.type }}
+              </ng-template>
+              <ng-template
+                ng-option-tmp
+                let-item="item"
+                let-index="index"
+                let-search="searchTerm"
+              >
+                {{ item.type }}
+              </ng-template>
+            </ng-select>
+            <app-form-field-error
+              [form-control]="resourceForm?.get('wateringFreq')"
+            ></app-form-field-error>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="lastWateredDate">When did you water your plant last</label>
+            <input
+            type="date"
+            class="form-control"
+            id="lastWateredDate"
+            formControlName="lastWateredDate"
+            [max]="maxWateringDate()"
+            [min]="minWateringDate()"
+          />
+          <app-form-field-error
+            [form-control]="resourceForm?.get('lastWateredDate')"
+          ></app-form-field-error>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="plantPetName">Plant pet name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="plantPetName"
+              formControlName="plantPetName"
+            />
+            <app-form-field-error
+              [form-control]="resourceForm?.get('plantPetName')"
+            ></app-form-field-error>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="button-save">
+      <button
+        [disabled]="submittingForm || resourceForm.invalid"
+        type="submit"
+        class="btn btn-primary btn-lg float-right mt-3"
+      >
+        <fa-icon [icon]="['fas', 'save']"></fa-icon> SAVE
+      </button>
+    </div>
+  </form>
+</div>

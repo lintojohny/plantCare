@@ -1,0 +1,18 @@
+.button-new {
+  text-align: end;
+}
+
+.button-new .btn {
+  font-size: 14px;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+@media screen and (max-width:767px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+

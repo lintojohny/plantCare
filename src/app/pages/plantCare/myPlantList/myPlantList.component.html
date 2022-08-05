@@ -1,0 +1,61 @@
+<div class="list">
+  <app-bread-crumb [items]="[{ text: 'My Plants' }]"></app-bread-crumb>
+
+  <app-page-header
+    page-title="My Plants"
+    button-text="Add Plants"
+    [button-fa]="['fas', 'plus']"
+    button-link="/new"
+    button-class="btn-success"
+  ></app-page-header>
+
+  <div class="card">
+    <div class="card-header">My Plants List</div>
+
+  </div>
+  <div class="container-fluid tableskindiv">
+    <div class="table-scroll">
+    <table class="tableskin">
+      <thead>
+        <tr class="bg-primary text-light">
+          <th>Plant Name</th>
+          <th>Plant Pet Name</th>
+          <th>Watering Frequency</th>
+          <th>Last waterd Date</th>
+          <th>Status</th>
+          <th class="actions">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plant of resources; trackBy: trackByMethod">
+          <td>{{ plant.plantTypes.name }}</td>
+          <td>{{ plant.plantPetName }}</td>
+          <td>{{ plant.wateringFrequency.type }}</td>
+          <td>{{ plant.lastWateredDate | date: "dd/MM/yyyy" }}</td>
+          <td >
+            <a [statusHighlight]=plant class="btn btn-secondary btn-sm botoes">&nbsp;&nbsp;</a>
+          </td>
+          <td class="actions">
+            <a
+              [routerLink]="[plant.id, 'edit']"
+              class="btn btn-secondary btn-sm botoes"
+              ><fa-icon [icon]="['fas', 'edit']"></fa-icon> <span class="text">Edit</span></a
+            >
+            <button
+              (click)="deleteResource(plant)"
+              class="btn btn-danger btn-sm botoes"
+            >
+              <fa-icon [icon]="['fas', 'trash']"></fa-icon> <span class="text">Delete</span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    <p-paginator
+      [rows]="size"
+      [totalRecords]="totalElementos"
+      (onPageChange)="paginate($event)"
+    ></p-paginator>
+  </div>
+</div>

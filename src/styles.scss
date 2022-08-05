@@ -1,0 +1,86 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+
+body {
+  background-color: rgba(63, 81, 181, 0.02) !important;
+}
+
+.form-group {
+  label {
+    margin-bottom: 5px;
+  }
+}
+
+.icon-pesquisar,
+.input-pesquisar {
+  color: #000 !important;
+  border-radius: 4px !important;
+  padding: 5px !important;
+  font-size: 18px !important;
+  margin-left: 5px !important;
+}
+
+.card {
+  margin: 20px 0 !important;
+}
+
+.procurar-css {
+  padding: 12px !important;
+  background-color: rgba($color: #3f51b5, $alpha: 0.8);
+}
+
+.tableskindiv {
+  padding: 20px;
+  box-shadow: 0px 5px 8px 0px rgb(0 0 0 / 15%);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.tableskin {
+  width: 100%;
+}
+.tableskin thead th {
+  line-height: 18px;
+  @media screen and (max-width:767px) {
+    font-size: 15px;
+    font-weight: 500;
+    min-width: 160px;
+  }
+}
+thead {
+  background-color: rgba($color: #3f51b5, $alpha: 0.4);
+}
+th {
+  padding: 10px !important;
+}
+tbody {
+  background-color: rgba($color: #3f51b5, $alpha: 0.07);
+}
+td {
+  padding: 15px;
+  text-align: left;
+}
+tbody tr:nth-child(even) {
+  background-color: rgba($color: #3f51b5, $alpha: 0.12);
+}
+
+.container {
+  @media screen and (max-width:991px) {
+    max-width: 100% !important;
+    padding: 0 24px;
+  }
+}
+
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-pages .p-paginator-page,  .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+  @media screen and (max-width:767px) {
+    min-width: 2rem !important;
+    height: 2rem !important;
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
